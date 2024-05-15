@@ -10,15 +10,15 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 import locations.AbstractLocation;
-//import locations.BeachArea;
+import locations.BeachArea;
 import locations.CityArea;
 import locations.ForestArea;
 import people.PeopleComparator;
 import people.Person;
 import properties.AbstractProperty;
 import properties.Appartment;
-//import properties.Cabin;
-//import properties.House;
+import properties.Cabin;
+import properties.House;
 import properties.PriceComparator;
 
 /**
@@ -182,7 +182,7 @@ public class UserInteractions {
                         loc = new ForestArea(desc);
                         break;
                     case 1:
-                        //loc = new BeachArea(desc);
+                        loc = new BeachArea(desc);
                         break;
                     case 2:
                         loc = new CityArea(desc);
@@ -219,10 +219,10 @@ public class UserInteractions {
                 AbstractProperty prop = null;
                 switch (alsoChosen) {
                     case 0:
-                        //prop = new Cabin(price / 100.0, desc);
+                        prop = new Cabin(price / 100.0, desc);
                         break;
                     case 1:
-                        //prop = new House(price / 100.0, desc);
+                        prop = new House(price / 100.0, desc);
                         break;
                     case 2:
                         prop = new Appartment(price / 100.0, desc);
