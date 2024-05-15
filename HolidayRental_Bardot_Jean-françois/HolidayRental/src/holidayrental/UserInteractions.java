@@ -267,12 +267,21 @@ public class UserInteractions {
                     Person pers = selectPerson();
                     LocalDate date = dateInput("the date of the rent");
                     myApp.startRent(pers, prop, date);
-                }
+                }//FAIT
 
             }
             break;
             case 7: {
-                // TODO
+                List<Rent> rents = new ArrayList<>(myApp.getRents());
+                rents.removeIf(new Finished());
+                if (rents.isEmpty()) {
+                    System.out.println("No available rents.");
+                } else {
+                    System.out.println("" + rents.size() + " available rents:");
+                    for (Rent r : rents) {
+                        System.out.println(r);
+                    }
+                }
             }
             break;
             case 8: {
@@ -300,17 +309,26 @@ public class UserInteractions {
             break;
             case 9:
                 double totalMoney=0.0;
-                // TODO
+                
+                List<Rent> rents = new ArrayList<>(myApp.getRents());
+                rents.removeIf(new Finished().negate());
+                if (!rents.isEmpty()) {
+                    System.out.println("" + rents.size() + " finished rents:");
+                    for (Rent r : rents) {
+                        totalMoney += r.totalPrice();
+                    }
+                }
+
                 System.out.println("Total money involved in finished rents : "+ totalMoney);
                 break;
             case 10: {
-                List<Rent> rents = new ArrayList<>(myApp.getRents());
-                rents.removeIf(new Finished().negate());
-                if (rents.isEmpty()) {
+                List<Rent> ren = new ArrayList<>(myApp.getRents());
+                ren.removeIf(new Finished().negate());
+                if (ren.isEmpty()) {
                     System.out.println("No finished rents.");
                 } else {
-                    System.out.println("" + rents.size() + " finished rents:");
-                    for (Rent r : rents) {
+                    System.out.println("" + ren.size() + " finished rents:");
+                    for (Rent r : ren) {
                         System.out.println(r);
                     }
                 }
