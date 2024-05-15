@@ -13,7 +13,7 @@ import properties.AbstractProperty;
  * predicate implementation (test returns true whenever the property is
  * INCOMPATIBLE with the location) and suitable value for "is" methods.
  */
-public abstract class AbstractLocation implements Predicate<AbstractProperty> {
+public abstract class AbstractLocation implements Predicate<AbstractProperty>{
     private final String description;
     private final Set<AbstractProperty> properties;
     public AbstractLocation(String description) {
@@ -29,15 +29,6 @@ public abstract class AbstractLocation implements Predicate<AbstractProperty> {
         if (property==null) {
             return false;
         }
-            if (this.isForest() && property.isAppartment()) {
-                return false;
-            }
-            if (this.isCity() && property.isCabin()) {
-                return false;
-            }
-            if (this.isBeach() && (property.isAppartment() || property.isHouse())) {
-                return false;
-            }
         this.properties.add(property);
         property.setLocation(this);
         return true; // Fait
