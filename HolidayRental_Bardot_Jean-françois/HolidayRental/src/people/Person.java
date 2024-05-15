@@ -18,7 +18,7 @@ public class Person {
     }
     
     public void addRent(Rent newRent) {
-        // TODO
+        rentHistory.add(newRent);
     }
 
     @Override
