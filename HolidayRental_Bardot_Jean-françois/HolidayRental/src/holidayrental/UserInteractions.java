@@ -162,10 +162,13 @@ public class UserInteractions {
                 }
                 break;
             case 3: {
-                // TODO:
+                // FAIT
                 // Prompt the user for the data required
+                String name = ARR_userStringInput("Enter the person name : ");
                 // Create the Person object
+                Person pers= new Person(name);
                 // Call the correct method on myApp with the new object
+                myApp.addPerson(pers);
             }
             break;
             case 4: {
@@ -337,7 +340,7 @@ public class UserInteractions {
             properties.addAll(set);
         }
         properties.sort(new PriceComparator());
-        return null; // TODO
+        return (AbstractProperty)selectFromCollection(new ArrayList<>(properties)); // FAIT
     }
 
     private Object selectFromCollection(Collection<Object> collection) {
