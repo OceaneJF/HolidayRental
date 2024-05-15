@@ -57,8 +57,7 @@ public abstract class AbstractProperty {
 
     @Override
     public int hashCode() {
-        String p=String.valueOf(this.price);
-        return this.description.hashCode()+p.hashCode(); // FAIT
+        return this.description.hashCode()+(int)Math.round(this.price*100); // FAIT
     }
 
     @Override
