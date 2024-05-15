@@ -88,7 +88,7 @@ public abstract class AbstractProperty {
         currentRent = newRent;
     }
     public void endRent() {
-        // TODO
+        currentRent = null;//FAIT
     }
     public Rent getRent() {
         return currentRent;
