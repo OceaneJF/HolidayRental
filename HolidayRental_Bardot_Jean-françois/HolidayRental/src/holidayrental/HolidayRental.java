@@ -89,7 +89,8 @@ public class HolidayRental {
         if (r == null) {
             return;
         }
-        // TODO
+        r.setEnd(end);
+        property.endRent();
     }
 
     Map<AbstractLocation, Set<AbstractProperty>> getPropertiesByLocation() {
