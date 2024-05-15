@@ -85,7 +85,7 @@ public abstract class AbstractProperty {
         this.location=location;
     }
     public void setRent(Rent newRent) {
-        // TODO
+        currentRent = newRent;
     }
     public void endRent() {
         // TODO

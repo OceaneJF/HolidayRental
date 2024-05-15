@@ -74,10 +74,13 @@ public class HolidayRental {
     }
 
     void startRent(Person p, AbstractProperty pro, LocalDate start) {
-        // TODO:
+        Rent r = new Rent(p, pro, start);
         // Create the Rent object
+        allRents.add(r);
         // Add that object to the collection of rents
+        pro.setRent(r);
         // Change the rent of the property
+        p.addRent(r);
         // Add the rent to the rent history of the person
     }
 
