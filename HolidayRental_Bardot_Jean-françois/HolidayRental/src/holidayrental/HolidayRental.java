@@ -40,6 +40,34 @@ public class HolidayRental {
     }
     private void fillAdditionalData() {
         // Your additional data here.
+        Person p1 = new Person("Chloe");
+        Person p2 = new Person("Oceane");
+        Person p3 = new Person("Caroline");
+        Person p4 = new Person("Jessica");
+        everybody.add(p1);
+        everybody.add(p2);
+        everybody.add(p3);
+        everybody.add(p4);
+        AbstractLocation l1 = new BeachArea("sunny beach");
+        AbstractLocation l2 = new CityArea("Gradignan village");
+        AbstractLocation l3 = new ForestArea("scarry woods");
+        allLocations.add(l1);
+        allLocations.add(l2);
+        allLocations.add(l3);
+        AbstractProperty pro1 = new Cabin(22.50, "flying cabin");
+        AbstractProperty pro2 = new Appartment(99.99, "my dirty appartment");
+        AbstractProperty pro3 = new House(666.00, " kamehouse");
+        allProperties.add(pro1);
+        allProperties.add(pro2);
+        allProperties.add(pro3);
+        l1.addProperty(pro1);
+        l2.addProperty(pro2);
+        l3.addProperty(pro3);
+        startRent(p1, pro1, LocalDate.of(2027, 10, 10));
+        startRent(p2, pro2, LocalDate.of(2026, 8, 8));
+        startRent(p3, pro3, LocalDate.of(2028, 9, 1));
+        endRent(pro1, LocalDate.of(2030, 3, 1));
+        startRent(p4, pro1, LocalDate.of(2031, 11, 22));
     }
 
     private void fillInitialData() {
@@ -66,11 +94,11 @@ public class HolidayRental {
         l1.addProperty(pro1);
         l2.addProperty(pro2);
         l3.addProperty(pro3);
-        //startRent(p1, pro1, LocalDate.of(2026, 1, 1));
+        startRent(p1, pro1, LocalDate.of(2026, 1, 1));
         startRent(p2, pro2, LocalDate.of(2026, 2, 15));
-        //startRent(p3, pro3, LocalDate.of(2026, 3, 20));
-        //endRent(pro1, LocalDate.of(2026, 4, 1));
-        //startRent(p4, pro1, LocalDate.of(2026, 4, 2));
+        startRent(p3, pro3, LocalDate.of(2026, 3, 20));
+        endRent(pro1, LocalDate.of(2026, 4, 1));
+        startRent(p4, pro1, LocalDate.of(2026, 4, 2));
     }
 
     void startRent(Person p, AbstractProperty pro, LocalDate start) {
