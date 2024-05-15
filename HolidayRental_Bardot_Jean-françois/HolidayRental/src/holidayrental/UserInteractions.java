@@ -242,7 +242,33 @@ public class UserInteractions {
             }
             break;
             case 6: {
-                // TODO
+                List<AbstractProperty> properties = new ArrayList<>();
+                for (Set<AbstractProperty> set : myApp.getPropertiesByLocation().values()) {
+                    properties.addAll(set);
+                }
+                properties.sort(new PriceComparator());
+                System.out.println("Wich property do you want to rent ?");
+                for (int i = 0; i < properties.size(); i++) {
+                    System.out.println("  " + i +"- " + properties.get(i));
+                }
+                AbstractProperty prop = selectProperty();
+                System.out.println(prop);
+
+                System.out.println("Which person want to rent this property ?");
+                List<Person> pe = new ArrayList<>(myApp.getPeople());
+                pe.sort(new PeopleComparator());
+                if (pe.isEmpty()) {
+                    System.out.println("Nobody registered.");
+                } else {
+                    System.out.println("" + pe.size() + " people registered:");
+                    for (int i = 0; i < pe.size(); i++) {
+                        System.out.println("  "+ i +"- " + pe.get(i));
+                    }
+                    Person pers = selectPerson();
+                    LocalDate date = dateInput("the date of the rent");
+                    myApp.startRent(pers, prop, date);
+                }
+
             }
             break;
             case 7: {
